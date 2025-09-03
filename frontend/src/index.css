@@ -1,0 +1,13 @@
+@import "tailwindcss";
+
+body {
+  @apply font-sans bg-gray-50;
+}
+
+input::placeholder {
+  @apply text-gray-400;
+}
+
+button {
+  @apply bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600;
+}
