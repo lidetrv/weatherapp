@@ -8,9 +8,16 @@ dotenv.config();
 const app = express();
 app.use(cors());
 
+// Use the port provided by Render or fallback to 5000
 const PORT = process.env.PORT || 5000;
 const API_KEY = process.env.WEATHER_API_KEY;
 
+// Root route to confirm backend is running
+app.get("/", (req, res) => {
+  res.send("Weather App Backend is running!");
+});
+
+// Weather API route
 app.get("/weather", async (req, res) => {
   const city = req.query.city;
   if (!city) {
@@ -32,6 +39,7 @@ app.get("/weather", async (req, res) => {
   }
 });
 
+// Start server
 app.listen(PORT, () => {
-  console.log(`Backend running on http://localhost:${PORT}`);
+  console.log(`Backend running on port ${PORT}`);
 });
